@@ -1,7 +1,5 @@
 FROM ubuntu:xenial
 
-MAINTAINER franciscotetremblay@gmail.com
-
 RUN apt-get update \
     && apt-get install -y curl \
     && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
@@ -71,15 +69,15 @@ RUN wget -O UnitySetup ${UNITY_DOWNLOAD_LINK} \
 
 ENV PROJECT_PATH /app
 
-ENTRYPOINT /Unity/Editor/Unity xvfb-run --auto-servernum /Unity/Editor/Unity \
-           -quit \
-           -batchmode \
-           -nographics \
-           -projectPath ${PROJECT_PATH} \
-           -username \"${UNITY_EMAIL}\" \
-           -password \"${UNITY_PASSWORD}\" \
-           -serial ${UNITY_SERIAL} \
-           -logfile /Unity/cli.log \
-           -buildTarget ${BUILD_TARGET} \
-           -executeMethod ${METHOD_FULLPATH}\
-           ${ADDITIONAL_OPTIONS}
+ENTRYPOINT xvfb-run --auto-servernum /Unity/Editor/Unity \
+          -quit \
+          -batchmode \
+          -nographics \
+          -projectPath /app \
+          -executeMethod ${UNITY_METHOD} \
+          -username "${UNITY_EMAIL}" \
+          -password "${UNITY_PASSWORD}" \
+          -serial ${UNITY_SERIAL} \
+          -logfile \
+          -buildTarget ${BUILD_TARGET} \
+          ${ADDITIONAL_OPTIONS}
