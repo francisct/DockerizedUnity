@@ -65,7 +65,7 @@ RUN wget -O UnitySetup ${UNITY_DOWNLOAD_LINK} \
     && mkdir /Unity \
     && chmod 777 /Unity \
     && chmod +x /UnitySetup \
-    && yes | ./UnitySetup --unattended --install-location=/Unity --components='Unity,${BUILD_TARGET},${UNITY_COMPONENTS}'
+    && yes | ./UnitySetup --unattended --install-location=/Unity --components="Unity,${BUILD_TARGET},${UNITY_COMPONENTS}"
 
 ENV PROJECT_PATH /app
 
