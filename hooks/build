@@ -1,4 +1,5 @@
 #!/bin/sh
+
 docker build \
     --build-arg UNITY_DOWNLOAD_LINK=https://beta.unity3d.com/download/dad990bf2728/UnitySetup-2018.2.7f1 \
     --build-arg BUILD_TARGET=WebGL \
