@@ -1,3 +1,4 @@
 #!/bin/sh
 
+docker push "${DOCKER_REPO}:2018.2.5f1-WebGL"
 docker push "${DOCKER_REPO}:2018.2.7f1-WebGL"
